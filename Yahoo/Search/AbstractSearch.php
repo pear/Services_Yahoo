@@ -133,7 +133,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  int Number of results
      */
-    public function setResults($count)
+    public function setResultNumber($count)
     {
         $count = (int)$count;
         if ($count > 50 || $count < 0) {
