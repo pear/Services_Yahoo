@@ -40,6 +40,7 @@
             <file name="Response.php" />
             <file name="video.php" />
             <file name="web.php" />
+            <file name="termExtraction.php" />
           </dir>
         </dir>
       </dir>

@@ -55,6 +55,7 @@ class Services_Yahoo_Search {
         case "news" :
         case "video" :
         case "local" :
+        case "termExtraction" :
             require_once "Services/Yahoo/Search/" . $type . ".php";
             $classname = "Services_Yahoo_Search_" . $type;
             return new $classname;
