@@ -32,6 +32,7 @@
         <dir name="Yahoo">
           <file role="php" name="Exception.php" />
           <file role="php" name="Search.php" />
+          <file role="php" name="ContentAnalysis.php" />
           <dir name="Search" role="php">
             <file name="AbstractSearch.php" />
             <file name="image.php" />
@@ -40,7 +41,12 @@
             <file name="Response.php" />
             <file name="video.php" />
             <file name="web.php" />
+          </dir>
+          <dir name="ContentAnalysis" role="php">
+            <file name="AbstractContentAnalysis.php" />
+            <file name="Response.php" />
             <file name="termExtraction.php" />
+            <file name="spellingSuggestion.php" />
           </dir>
         </dir>
       </dir>

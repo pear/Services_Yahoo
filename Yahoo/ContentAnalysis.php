@@ -2,7 +2,7 @@
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
 /**
- * Search dispatcher
+ * Content analysis dispatcher
  *
  * PHP version 5
  *
@@ -24,10 +24,10 @@
 require_once "Services/Yahoo/Exception.php";
 
 /**
- * Search dispatcher class
+ * Content analysis class
  *
  * This class provides a method to create a concrete instance of one
- * of the supported search types (Web, Images, Videos, News, Local).
+ * of the supported content analysis services.
  *
  * @category   Services
  * @package    Services_Yahoo
@@ -36,31 +36,28 @@ require_once "Services/Yahoo/Exception.php";
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id$
  */
-class Services_Yahoo_Search {
+class Services_Yahoo_ContentAnalysis {
 
     /**
-     * Attempts to return a concrete instance of a search class
+     * Attempts to return a concrete instance of a content analysis class
      *
      * @access  public
-     * @param   string Type of search. Can be one of web, image, news, video or local
-     * @return  object Concrete instance of a search class based on the paramter
+     * @param   string Type of content analysis. Can be one of spellingSuggestion or termExtraction
+     * @return  object Concrete instance of a content analysis class based on the paramter
      * @throws  Services_Yahoo_Exception
      */
     public function factory($type)
     {
         switch ($type) {
 
-        case "web" :
-        case "image" :
-        case "news" :
-        case "video" :
-        case "local" :
-            require_once "Services/Yahoo/Search/" . $type . ".php";
-            $classname = "Services_Yahoo_Search_" . $type;
+        case "termExtraction" :
+        case "spellingSuggestion" :
+            require_once "Services/Yahoo/ContentAnalysis/" . $type . ".php";
+            $classname = "Services_Yahoo_ContentAnalysis_" . $type;
             return new $classname;
 
         default :
-            throw new Services_Yahoo_Exception("Unknown search type {$type}");
+            throw new Services_Yahoo_Exception("Unknown content analysis type {$type}");
             break;
         }
     }
