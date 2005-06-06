@@ -4,8 +4,7 @@
   <name>Services_Yahoo</name>
   <summary>Provides access to the Yahoo! Web Services</summary>
   <description>
-    Services_Yahoo provides object-oriented interfaces to the web
-    service capabilities of Yahoo.
+    Services_Yahoo provides object-oriented interfaces to the web service capabilities of Yahoo.
   </description>
   <maintainers>
     <maintainer>
