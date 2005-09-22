@@ -15,6 +15,50 @@
     </maintainer>
   </maintainers>
   <release>
+    <version>0.2.0</version>
+    <date>2005-xx-xx</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>
+      * Added API to talk to Yahoo! Maps (Bryan Dunlap)
+    </notes>
+    <deps>
+      <dep type="pkg" rel="has" optional="no">HTTP_Request</dep>
+      <dep type="pkg" rel="ge" version="1.3.3" optional="no">PEAR</dep>
+      <dep type="php" rel="ge" version="5.0.0" optional="no" />
+      <dep type="ext" rel="has" optional="no">simplexml</dep>
+      <dep type="ext" rel="has" optional="yes">dom</dep>
+    </deps>
+    <filelist>
+      <dir name="/" baseinstalldir="Services">
+        <dir name="Yahoo">
+          <file role="php" name="Exception.php" />
+          <file role="php" name="Search.php" />
+          <file role="php" name="ContentAnalysis.php" />
+          <dir name="Search" role="php">
+            <file name="AbstractSearch.php" />
+            <file name="image.php" />
+            <file name="local.php" />
+            <file name="news.php" />
+            <file name="Response.php" />
+            <file name="video.php" />
+            <file name="web.php" />
+          </dir>
+          <dir name="ContentAnalysis" role="php">
+            <file name="AbstractContentAnalysis.php" />
+            <file name="Response.php" />
+            <file name="termExtraction.php" />
+            <file name="spellingSuggestion.php" />
+          </dir>
+          <dir name="Maps" role="php">
+            <file name="Request.php" />
+            <file name="XMLDocument.php" />
+          </dir>
+        </dir>
+      </dir>
+    </filelist>
+  </release>
+  <release>
     <version>0.1.0</version>
     <date>2005-06-06</date>
     <license>PHP License</license>
