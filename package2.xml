@@ -20,19 +20,18 @@
     <active>yes</active>
   </lead>
   <date>2005-09-30</date>
-  <time>20:14:58</time>
   <version>
-    <release>0.1.0</release>
-    <api>0.1.0</api>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
   </version>
   <stability>
     <release>alpha</release>
     <api>alpha</api>
   </stability>
   <license uri="http://www.php.net/license">PHP License</license>
-  <notes>Initial release.  This release does not come with any
-  documentation.  It is mainly meant as a preview for interested
-  parties.
+  <notes>
+    * Fixed bug #5442.
+    * Added API to talk to Yahoo! Maps (Bryan Dunlap)
   </notes>
   <contents>
     <dir name="/">
