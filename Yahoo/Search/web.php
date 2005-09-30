@@ -74,7 +74,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * @param  array Array of domains
      */    
     public function setSites($sites) {
-        $this->parameters['sites'] = $sites;
+        $this->parameters['site'] = $sites;
     }
 
     /**
