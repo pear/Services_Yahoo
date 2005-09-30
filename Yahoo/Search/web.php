@@ -78,30 +78,52 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
     }
 
     /**
-     * Adds a domain to restrict the search to
+     * Returns the domains to restrict the search to
      *
      * @access public
-     * @param  string Domain to add to the list of domains to restrict the search to
+     * @return array Array of domains
      */
-    public function addSites($site) {
-        if (!isset($this->parameters['site']) || !is_array($this->parameters['site'])) {
-            $this->parameters['sites'] = array($site);
-        } else {
-            $this->parameters['sites'][] = $site;
-        }
+    public function getSites() {
+        return $this->getParameter("site");
     }
 
     /**
-     * Removes a domain from the list of domains to restrict the search to
+     * Sets the subscriptions to premium contents that should also be searched
      *
      * @access public
-     * @param  string Domain to remove from the list
-     */
-    public function removeSite($site) {
-        if (!isset($this->parameters['site'])) {
-            return;
-        }
+     * @param  array Array of subscription codes
+     */    
+    public function setSubscriptions($subscriptions) {
+        $this->parameters['subscription'] = $sites;
+    }
 
-        $this->parameters['site'] = self::removeArrayElement($this->parameters['site'], $site);
+    /**
+     * Returns the subscriptions to premium contents that should also be searched
+     *
+     * @access public
+     * @return array Array of subscription codes
+     */
+    public function getSubscriptions() {
+        return $this->getParameter("subscription");
+    }
+
+    /**
+     * Sets the Creative Commons licenses that the contents must be licensed under
+     *
+     * @access public
+     * @param  array Array of license codes
+     */
+    public function setLicenses($licenses) {
+        $this->parameters['license'] = $licenses;
+    }
+
+    /**
+     * Returns the Creative Commons licenses that the contents must be licensed under
+     *
+     * @access public
+     * @return array Array of license codes
+     */
+    public function getLicenses() {
+        return $this->getParameter("license");
     }
 }

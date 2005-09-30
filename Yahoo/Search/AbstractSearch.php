@@ -193,23 +193,19 @@ abstract class Services_Yahoo_Search_AbstractSearch {
     {
         $this->parameters['adult_ok'] = 1;
     }
-    
+
     /**
-     * Removes elements identified by the $needle from the array $haystack
+     * Returns an element from the parameters
      *
-     * @static
      * @access protected
-     * @param  array $haystack Array to remove the elements from
-     * @param  mixed $needle Value of the elements to remove from the array
-     * @return array Array with elements removed
+     * @param  string $name Name of the element
+     * @return string Value of the parameter idenfied by $name
      */
-    protected static function removeArrayElement($haystack, $needle) {
-        $searches = array_keys($haystack, $needle);
-        $offset = 0;
-        foreach ($searches as $position) {
-            array_splice($haystack, $position - $offset++, 1);
+    protected function getParameter($name) {
+        if (isset($this->parameters[$name])) {
+            return $this->parameters[$name];
         }
 
-        return $haystack;
+        return "";
     }
 }
