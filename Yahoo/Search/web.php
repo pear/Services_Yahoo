@@ -66,4 +66,42 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
     {
         $this->parameters['language'] = $language;
     }
+
+    /**
+     * Sets the domains to restrict the search to
+     *
+     * @access public
+     * @param  array Array of domains
+     */    
+    public function setSites($sites) {
+        $this->parameters['sites'] = $sites;
+    }
+
+    /**
+     * Adds a domain to restrict the search to
+     *
+     * @access public
+     * @param  string Domain to add to the list of domains to restrict the search to
+     */
+    public function addSites($site) {
+        if (!isset($this->parameters['site']) || !is_array($this->parameters['site'])) {
+            $this->parameters['sites'] = array($site);
+        } else {
+            $this->parameters['sites'][] = $site;
+        }
+    }
+
+    /**
+     * Removes a domain from the list of domains to restrict the search to
+     *
+     * @access public
+     * @param  string Domain to remove from the list
+     */
+    public function removeSite($site) {
+        if (!isset($this->parameters['site'])) {
+            return;
+        }
+
+        $this->parameters['site'] = self::removeArrayElement($this->parameters['site'], $site);
+    }
 }

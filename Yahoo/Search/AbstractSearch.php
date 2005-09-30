@@ -58,6 +58,13 @@ abstract class Services_Yahoo_Search_AbstractSearch {
         $request = new HTTP_Request($this->requestURL);
 
         foreach ($this->parameters as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $value2) {
+                    $request->addQueryString($key, $value2);
+                }
+                continue;
+            }
+
             $request->addQueryString($key, $value);
         }
 
@@ -185,5 +192,24 @@ abstract class Services_Yahoo_Search_AbstractSearch {
     public function setAdultOK()
     {
         $this->parameters['adult_ok'] = 1;
+    }
+    
+    /**
+     * Removes elements identified by the $needle from the array $haystack
+     *
+     * @static
+     * @access protected
+     * @param  array $haystack Array to remove the elements from
+     * @param  mixed $needle Value of the elements to remove from the array
+     * @return array Array with elements removed
+     */
+    protected static function removeArrayElement($haystack, $needle) {
+        $searches = array_keys($haystack, $needle);
+        $offset = 0;
+        foreach ($searches as $position) {
+            array_splice($haystack, $position - $offset++, 1);
+        }
+
+        return $haystack;
     }
 }
