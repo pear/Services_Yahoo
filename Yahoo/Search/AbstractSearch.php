@@ -55,18 +55,20 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      */
     public function submit()
     {
-        $request = new HTTP_Request($this->requestURL);
+        $url = $this->requestURL . "?";
 
         foreach ($this->parameters as $key => $value) {
             if (is_array($value)) {
                 foreach ($value as $value2) {
-                    $request->addQueryString($key, $value2);
+                    $url .= $key . "=" . urlencode($value2) . "&";
                 }
                 continue;
             }
 
-            $request->addQueryString($key, $value);
+            $url .= $key . "=" . urlencode($value) . "&";
         }
+
+        $request = new HTTP_Request($url);
 
         $result = $request->sendRequest();
         if (PEAR::isError($result)) {
