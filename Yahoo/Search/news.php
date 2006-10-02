@@ -55,9 +55,11 @@ class Services_Yahoo_Search_news extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Sort type (either "rank" or "date")
      */
-    public function setSort($sort)
+    public function sortedBy($sort)
     {
         $this->parameters['sort'] = $sort;
+
+        return $this;
     }
 
     /**
@@ -70,8 +72,10 @@ class Services_Yahoo_Search_news extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Language code
      */
-    public function setLanguage($language)
+    public function inLanguage($language)
     {
         $this->parameters['language'] = $language;
+
+        return $this;
     }
 }

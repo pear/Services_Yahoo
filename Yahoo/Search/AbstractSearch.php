@@ -59,8 +59,10 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @return object Services_Yahoo_Response Search result
      * @throws Services_Yahoo_Exception
      */
-    public function submit()
+    public function searchFor($query)
     {
+        $this->parameters['query'] = $query;
+
         $url = $this->requestURL . "?";
 
         foreach ($this->parameters as $key => $value) {
@@ -103,22 +105,13 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @link   http://developer.yahoo.net/documentation/rate.html
      * @access public
      * @param  string Application ID
-     * @return void
+     * @return Services_Yahoo_AbstractSearch
      */
-    public function setAppID($id)
+    public function withAppID($id)
     {
         $this->parameters['appid'] = $id;
-    }
 
-    /**
-     * Set the query to search for
-     *
-     * @access public
-     * @param  string Query to search for
-     */
-    public function setQuery($query)
-    {
-        $this->parameters['query'] = $query;
+        return $this;
     }
 
     /**
@@ -134,9 +127,11 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Kind of search
      */
-    public function setType($type)
+    public function withType($type)
     {
         $this->parameters['type'] = $type;
+
+        return $this;
     }
 
     /**
@@ -148,13 +143,15 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  int Number of results
      */
-    public function setResultNumber($count)
+    public function withResults($count)
     {
         $count = (int)$count;
         if ($count > 50 || $count < 0) {
             $count = 10;
         }
         $this->parameters['results'] = $count;
+
+        return $this;
     }
 
     /**
@@ -166,9 +163,11 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  int Starting position
      */
-    public function setStart($start)
+    public function startingAt($start)
     {
         $this->parameters['start'] = $start;
+
+        return $this;
     }
 
     /**
@@ -184,9 +183,11 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Format of search
      */
-    public function setFormat($format)
+    public function inFormat($format)
     {
         $this->parameters['format'] = $format;
+
+        return $this;
     }
 
     /**
@@ -197,9 +198,11 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      */
-    public function setAdultOK()
+    public function adultOK()
     {
         $this->parameters['adult_ok'] = 1;
+
+        return $this;
     }
 
     /**

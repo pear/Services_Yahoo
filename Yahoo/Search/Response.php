@@ -203,7 +203,7 @@ class Services_Yahoo_Search_Response implements Iterator {
     private function parseRequest()
     {
         $tmp = unserialize($this->request->getResponseBody());
-        
+
         if ($tmp === false || !is_array($tmp) || !isset($tmp['ResultSet'])) {
             throw new Services_Yahoo_Exception("The response did not contain a serialized array of search results");
         }

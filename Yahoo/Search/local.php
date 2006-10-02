@@ -56,9 +56,11 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Radius as a float number
      */
-    public function setRadius($radius)
+    public function inRadius($radius)
     {
         $this->parameters['radius'] = $radius;
+
+        return $this;
     }
     
     /** 
@@ -69,9 +71,11 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Name of the street
      */
-    public function setStreet($street)
+    public function inStreet($street)
     {
         $this->parameters['street'] = $street;
+
+        return $this;
     }
 
     /** 
@@ -80,9 +84,11 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string City name
      */
-    public function setCity($city)
+    public function inCity($city)
     {
         $this->parameters['city'] = $city;
+
+        return $this;
     }
 
     /** 
@@ -95,9 +101,11 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string State name
      */
-    public function setState($state)
+    public function inState($state)
     {
         $this->parameters['state'] = $state;
+
+        return $this;
     }
 
     /** 
@@ -111,9 +119,11 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string ZIP code as described
      */
-    public function setZIP($code)
+    public function withZIP($code)
     {
         $this->parameters['zip'] = $code;
+
+        return $this;
     }
 
     /** 
@@ -134,8 +144,10 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Location description
      */
-    public function setLocation($text)
+    public function atLocation($text)
     {
         $this->parameters['location'] = $location;
+
+        return $this;
     }
 }

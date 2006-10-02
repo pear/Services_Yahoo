@@ -53,9 +53,11 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      */
-    public function setSimilarOK()
+    public function similarOK()
     {
         $this->parameters['similar_ok'] = 1;
+
+        return $this;
     }
 
     /**
@@ -68,19 +70,23 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @param  string Language code
      */
-    public function setLanguage($language)
+    public function inLanguage($language)
     {
         $this->parameters['language'] = $language;
+
+        return $this;
     }
 
     /**
      * Sets the domains to restrict the search to
      *
      * @access public
-     * @param  array Array of domains
-     */    
-    public function setSites($sites) {
-        $this->parameters['site'] = $sites;
+     * @param  string Domain
+     */
+    public function onSite($site) {
+        $this->parameters['site'][] = $site;
+
+        return $this;
     }
 
     /**
@@ -97,10 +103,12 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * Sets the subscriptions to premium contents that should also be searched
      *
      * @access public
-     * @param  array Array of subscription codes
+     * @param  string Subscription code
      */    
-    public function setSubscriptions($subscriptions) {
-        $this->parameters['subscription'] = $sites;
+    public function withSubscription($subscription) {
+        $this->parameters['subscription'][] = $subscription;
+
+        return $this;
     }
 
     /**
@@ -117,10 +125,12 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * Sets the Creative Commons licenses that the contents must be licensed under
      *
      * @access public
-     * @param  array Array of license codes
+     * @param  string Creative Commons License code
      */
-    public function setLicenses($licenses) {
-        $this->parameters['license'] = $licenses;
+    public function licensedUnder($license) {
+        $this->parameters['license'][] = $license;
+
+        return $this;
     }
 
     /**
