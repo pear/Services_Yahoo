@@ -28,7 +28,7 @@
     <release>alpha</release>
     <api>alpha</api>
   </stability>
-  <license uri="http://www.php.net/license">PHP License</license>
+  <license uri="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</license>
   <notes>
     * Switched from XML to Serialized PHP as the internal data encoding format.
   </notes>
