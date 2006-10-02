@@ -40,7 +40,7 @@ require_once "HTTP/Request.php";
  */
 abstract class Services_Yahoo_Search_AbstractSearch {
 
-    protected $parameters = array("appid" => "PEAR_Services_Yahoo");
+    protected $parameters = array("appid" => "PEAR_Services_Yahoo", "output" => "php"); 
 
     /**
      * Submits the search

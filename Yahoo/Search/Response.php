@@ -115,8 +115,8 @@ class Services_Yahoo_Search_Response implements Iterator {
      */
     public function getResultSetMapUrl()
     {
-        if (isset($this->xml->ResultSetMapUrl)) {
-            return (string)$this->xml->ResultSetMapUrl;
+        if (isset($this->result['ResultSetMapUrl'])) {
+            return $this->result['ResultSetMapUrl'];
         }
 
         return "";
@@ -159,13 +159,13 @@ class Services_Yahoo_Search_Response implements Iterator {
 
     public function current()
     {
-        return (array)$this->xml->Result[$this->iteratorCounter];
+        return (array)$this->result['Result'][$this->iteratorCounter];
     }
 
     public function next()
     {
         $this->iteratorCounter++;
-        if (!isset($this->xml->Result[$this->iteratorCounter])) {
+        if (!isset($this->result['Result'][$this->iteratorCounter])) {
             $this->isValidIterator = false;
         }
     }
@@ -189,18 +189,20 @@ class Services_Yahoo_Search_Response implements Iterator {
     // {{{ private methods
 
     /**
-     * Parse XML from the response
+     * Parse result set from the response
      *
      * @access private
      * @throws Services_Yahoo_Exception
      */
     private function parseRequest()
     {
-        $this->xml = simplexml_load_string($this->request->getResponseBody());
-
-        if ($this->xml === false) {
-            throw new Services_Yahoo_Exception("The response contained no valid XML");
+        $tmp = unserialize($this->request->getResponseBody());
+        
+        if ($tmp === false || !is_array($tmp) || !isset($tmp['ResultSet'])) {
+            throw new Services_Yahoo_Exception("The response did not contain a serialized array of search results");
         }
+        
+        $this->result = $tmp['ResultSet'];
     }
 
     /**
@@ -230,7 +232,7 @@ class Services_Yahoo_Search_Response implements Iterator {
     private function getMessages()
     {
         $returnValue = array();
-        foreach ($this->xml->Message as $message) {
+        foreach ($this->result['Message'] as $message) {
             $returnValue[] = $message;
         }
         return $returnValue;
@@ -246,8 +248,8 @@ class Services_Yahoo_Search_Response implements Iterator {
      */
     private function returnAttribute($name)
     {
-        if (isset($this->xml[$name])) {
-            return $this->xml[$name];
+        if (isset($this->result[$name])) {
+            return $this->result[$name];
         }
 
         return null;
