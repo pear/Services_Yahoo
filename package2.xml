@@ -58,6 +58,8 @@
         <file baseinstalldir="Services" name="Exception.php" role="php" />
         <file baseinstalldir="Services" name="Search.php" role="php" />
         <dir name="Tests">
+          <file name="All.php" role="test" />
+          <file name="Exception.php" role="test" />
           <file name="Search.php" role="test" />
         </dir>
       </dir> <!-- //Yahoo -->

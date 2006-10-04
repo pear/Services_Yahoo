@@ -26,7 +26,7 @@
  */
 
 if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_NETHOD", "Services_Yahoo_Tests_AllTests::main");
+    define("PHPUnit_MAIN_NETHOD", "Services_Yahoo_Tests_All::main");
 }
 
 require_once "PHPUnit/Framework/TestSuite.php";
@@ -60,6 +60,6 @@ class Services_Yahoo_Tests_All {
     }
 }
 
-if (PHPUnit_MAIN_METHOD == "Services_Yahoo_Tests_AllTests::main") {
-    Services_Yahoo_Tests_AllTests::main();
+if (PHPUnit_MAIN_METHOD == "Services_Yahoo_Tests_All::main") {
+    Services_Yahoo_Tests_All::main();
 }
