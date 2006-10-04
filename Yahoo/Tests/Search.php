@@ -83,6 +83,16 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
         $this->assertEquals(20, $result->getTotalResultsReturned());
     }
 
+    public function testWithResultsBoundaries() {
+        $client = Services_Yahoo_Search::factory("web");
+
+        $result = $client->withResults(-1)->searchFor("Madonna");
+        $this->assertEquals(10, $result->getTotalResultsReturned());
+
+        $result = $client->withResults(51)->searchFor("Madonna");
+        $this->assertEquals(10, $result->getTotalResultsReturned());
+    }
+
     public function testStartingAt() {
         $client = Services_Yahoo_Search::factory("web");
 
@@ -124,6 +134,32 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
 
             $this->assertThat($result['DisplayUrl'], $this->logicalOr($this->matchesRegularExpression("~^pear\.php\.net~"),
                                                                       $this->matchesRegularExpression("~^pecl\.php\.net~")));
+        }
+    }
+
+    public function testNewsSortedBy() {
+        $client = Services_Yahoo_Search::factory("news");
+
+        $results = $client->sortedBy("date")->searchFor("Madonna");
+
+        $lastDate = 0;
+        foreach ($results as $result) {
+            if ($lastDate == 0) {
+                $lastDate = $result['PublishDate'];
+            }
+
+            $this->assertTrue($result['PublishDate'] <= $lastDate);
+            $lastDate = $result['PublishDate'];
+        }
+    }
+
+    public function testNewsInLanguage() {
+        $client = Services_Yahoo_Search::factory("news");
+
+        $results = $client->inLanguage("sv")->searchFor("Madonna");
+
+        foreach ($results as $result) {
+            $this->assertEquals("sv", $result['Language']);
         }
     }
 }
