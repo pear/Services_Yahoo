@@ -54,6 +54,7 @@ class Services_Yahoo_Search_news extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Sort type (either "rank" or "date")
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function sortedBy($sort)
     {
@@ -71,6 +72,7 @@ class Services_Yahoo_Search_news extends Services_Yahoo_Search_AbstractSearch {
      * @link   http://developer.yahoo.net/documentation/languages.html
      * @access public
      * @param  string Language code
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inLanguage($language)
     {

@@ -55,6 +55,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Radius as a float number
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inRadius($radius)
     {
@@ -70,6 +71,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Name of the street
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inStreet($street)
     {
@@ -83,6 +85,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string City name
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inCity($city)
     {
@@ -100,6 +103,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @link   http://en.wikipedia.org/wiki/State_codes
      * @access public
      * @param  string State name
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inState($state)
     {
@@ -118,6 +122,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string ZIP code as described
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function withZIP($code)
     {
@@ -143,6 +148,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Location description
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function atLocation($text)
     {

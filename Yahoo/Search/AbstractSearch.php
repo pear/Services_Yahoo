@@ -105,7 +105,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * @link   http://developer.yahoo.net/documentation/rate.html
      * @access public
      * @param  string Application ID
-     * @return Services_Yahoo_AbstractSearch
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function withAppID($id)
     {
@@ -126,6 +126,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Kind of search
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function withType($type)
     {
@@ -142,6 +143,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  int Number of results
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function withResults($count)
     {
@@ -162,6 +164,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * 
      * @access public
      * @param  int Starting position
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function startingAt($start)
     {
@@ -182,6 +185,7 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Format of search
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inFormat($format)
     {
@@ -197,8 +201,9 @@ abstract class Services_Yahoo_Search_AbstractSearch {
      * enough to be part of the abstract base class.
      *
      * @access public
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
-    public function adultOK()
+    public function adultContentOK()
     {
         $this->parameters['adult_ok'] = 1;
 

@@ -52,8 +52,9 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * Set to allow multiple results with similar content
      *
      * @access public
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
-    public function similarOK()
+    public function similarContentOK()
     {
         $this->parameters['similar_ok'] = 1;
 
@@ -69,6 +70,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * @link   http://developer.yahoo.net/documentation/languages.html
      * @access public
      * @param  string Language code
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function inLanguage($language)
     {
@@ -82,6 +84,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Domain
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function onSite($site) {
         $this->parameters['site'][] = $site;
@@ -94,6 +97,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Subscription code
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */    
     public function withSubscription($subscription) {
         $this->parameters['subscription'][] = $subscription;
@@ -106,6 +110,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      *
      * @access public
      * @param  string Creative Commons License code
+     * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
     public function licensedUnder($license) {
         $this->parameters['license'][] = $license;
