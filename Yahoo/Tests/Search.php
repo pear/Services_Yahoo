@@ -93,6 +93,25 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
         $this->assertEquals(10, $result->getTotalResultsReturned());
     }
 
+    public function testResultFormat() {
+        $client = Services_Yahoo_Search::factory("web");
+
+        $results = $client->searchFor("Madonna");
+
+        foreach ($results as $key => $value) {
+            $this->assertType("int", $key);
+            $this->assertType("array", $value);
+        }
+    }
+
+    public function testHasMore() {
+        $client = Services_Yahoo_Search::factory("web");
+
+        $results = $client->searchFor("Madonna");
+
+        $this->assertTrue($results->hasMore());
+    }
+
     public function testStartingAt() {
         $client = Services_Yahoo_Search::factory("web");
 
