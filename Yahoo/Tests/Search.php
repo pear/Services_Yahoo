@@ -162,4 +162,55 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
             $this->assertEquals("sv", $result['Language']);
         }
     }
+
+    public function testLocalAtLocation() {
+        $client = Services_Yahoo_Search::factory("local");
+
+        $results = $client->atLocation("San Francisco, CA")->searchFor("pizza");
+
+        foreach ($results as $result) {
+            $this->assertEquals("San Francisco", $result['City']);
+            $this->assertEquals("CA", $result['State']);
+        }
+    }
+
+    public function testLocalInStreet() {
+        $client = Services_Yahoo_Search::factory("local");
+
+        $results = $client->inCity("Los Angeles")->inStreet("Hollywood Blvd")->searchFor("pizza");
+
+        foreach ($results as $result) {
+            $this->assertEquals("Los Angeles", $result['City']);
+            $this->assertEquals("CA", $result['State']);
+        }
+    }
+
+    public function testLocalInState1() {
+        $client = Services_Yahoo_Search::factory("local");
+        $results = $client->inState("OR")->inCity("Portland")->searchFor("pizza");
+
+        foreach ($results as $result) {
+            $this->assertEquals("OR", $result['State']);
+            $this->assertEquals("Portland", $result['City']);
+        }
+    }
+
+    public function testLocalInState2() {
+        $client = Services_Yahoo_Search::factory("local");
+        $results = $client->inState("Oregon")->inCity("Portland")->searchFor("pizza");
+
+        foreach ($results as $result) {
+            $this->assertEquals("OR", $result['State']);
+            $this->assertEquals("Portland", $result['City']);
+        }
+    }
+
+    public function testLocalWithZip() {
+        $client = Services_Yahoo_Search::factory("local");
+        $results = $client->withZip("90028")->searchFor("pizza");
+
+        foreach ($results as $result) {
+            $this->assertEquals("Los Angeles", $result['City']);
+        }
+    }
 }
