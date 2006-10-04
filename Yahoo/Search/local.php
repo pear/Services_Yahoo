@@ -46,7 +46,7 @@ require_once "AbstractSearch.php";
  */
 class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
 
-    protected $requestURL = "http://api.local.yahoo.com/LocalSearchService/V1/localSearch";
+    protected $requestURL = "http://local.yahooapis.com/LocalSearchService/V3/localSearch";
 
     /** 
      * Set how far (in miles) from the specified location to search for the query terms
@@ -150,7 +150,7 @@ class Services_Yahoo_Search_local extends Services_Yahoo_Search_AbstractSearch {
      * @param  string Location description
      * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
-    public function atLocation($text)
+    public function atLocation($location)
     {
         $this->parameters['location'] = $location;
 
