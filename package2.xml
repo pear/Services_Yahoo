@@ -58,7 +58,7 @@
         <file baseinstalldir="Services" name="Exception.php" role="php" />
         <file baseinstalldir="Services" name="Search.php" role="php" />
       </dir> <!-- //Yahoo -->
-      <dir name="tests">
+      <dir name="Tests">
         <file name="Search.php" role="test" />
       </dir>
     </dir> <!-- / -->

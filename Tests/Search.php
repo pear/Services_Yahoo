@@ -36,7 +36,7 @@ require_once "Services/Yahoo/Search.php";
  * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License, Version 2.0
  * @version    CVS: $Id$
  */
-class SearchTest extends PHPUnit_Framework_TestCase {
+class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
 
     public function testFactory() {
         $client = Services_Yahoo_Search::factory("image");
@@ -96,6 +96,7 @@ class SearchTest extends PHPUnit_Framework_TestCase {
         $results = $client->onSite("pear.php.net")->searchFor("Documentation");
 
         foreach ($results as $result) {
+            print_r($result);
             $this->assertRegExp("~^http://pear\.php\.net~", $result['Url']);
             $this->assertRegExp("~^pear\.php\.net~", $result['DisplayUrl']);
         }
