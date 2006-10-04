@@ -67,7 +67,6 @@ class Services_Yahoo_Search {
 
         default :
             throw new Services_Yahoo_Exception("Unknown search type {$type}");
-            break;
         }
     }
 }
