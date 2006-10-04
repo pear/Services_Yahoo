@@ -55,6 +55,18 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
         $this->assertType("Services_Yahoo_Search_web", $client);
     }
 
+    public function testFactoryFailing() {
+        try {
+            $client = Services_Yahoo_Search::factory("doesnotexist");
+        } catch (Services_Yahoo_Exception $e) {
+            $this->assertType("PEAR_Exception", $e);
+            $this->assertEquals("Unknown search type doesnotexist", $e->getMessage());
+            return;
+        }
+
+        $this->fail("An expected Services_Yahoo_Exception has not been raised");
+    }
+
     public function testWithResults10() {
         $client = Services_Yahoo_Search::factory("web");
 
