@@ -90,16 +90,6 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
     }
 
     /**
-     * Returns the domains to restrict the search to
-     *
-     * @access public
-     * @return array Array of domains
-     */
-    public function getSites() {
-        return $this->getParameter("site");
-    }
-
-    /**
      * Sets the subscriptions to premium contents that should also be searched
      *
      * @access public
@@ -112,16 +102,6 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
     }
 
     /**
-     * Returns the subscriptions to premium contents that should also be searched
-     *
-     * @access public
-     * @return array Array of subscription codes
-     */
-    public function getSubscriptions() {
-        return $this->getParameter("subscription");
-    }
-
-    /**
      * Sets the Creative Commons licenses that the contents must be licensed under
      *
      * @access public
@@ -131,15 +111,5 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
         $this->parameters['license'][] = $license;
 
         return $this;
-    }
-
-    /**
-     * Returns the Creative Commons licenses that the contents must be licensed under
-     *
-     * @access public
-     * @return array Array of license codes
-     */
-    public function getLicenses() {
-        return $this->getParameter("license");
     }
 }

@@ -204,19 +204,4 @@ abstract class Services_Yahoo_Search_AbstractSearch {
 
         return $this;
     }
-
-    /**
-     * Returns an element from the parameters
-     *
-     * @access protected
-     * @param  string $name Name of the element
-     * @return string Value of the parameter idenfied by $name
-     */
-    protected function getParameter($name) {
-        if (isset($this->parameters[$name])) {
-            return $this->parameters[$name];
-        }
-
-        return "";
-    }
 }
