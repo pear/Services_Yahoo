@@ -57,10 +57,10 @@
         <file baseinstalldir="Services" name="ContentAnalysis.php" role="php" />
         <file baseinstalldir="Services" name="Exception.php" role="php" />
         <file baseinstalldir="Services" name="Search.php" role="php" />
+        <dir name="Tests">
+          <file name="Search.php" role="test" />
+        </dir>
       </dir> <!-- //Yahoo -->
-      <dir name="Tests">
-        <file name="Search.php" role="test" />
-      </dir>
     </dir> <!-- / -->
   </contents>
   <dependencies>

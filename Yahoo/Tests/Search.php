@@ -96,7 +96,6 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
         $results = $client->onSite("pear.php.net")->searchFor("Documentation");
 
         foreach ($results as $result) {
-            print_r($result);
             $this->assertRegExp("~^http://pear\.php\.net~", $result['Url']);
             $this->assertRegExp("~^pear\.php\.net~", $result['DisplayUrl']);
         }
