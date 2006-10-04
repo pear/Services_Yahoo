@@ -58,8 +58,6 @@ class Services_Yahoo_Search_Response implements Iterator {
     public function __construct(HTTP_Request $request)
     {
         $this->request = $request;
-
-        $this->parseRequest();
         
         if ($this->isError() == true) {
             $exception = new Services_Yahoo_Exception("Search query failed");
@@ -67,6 +65,8 @@ class Services_Yahoo_Search_Response implements Iterator {
 
             throw $exception;
         }
+
+        $this->parseRequest();
     }
 
     // {{{ response handling

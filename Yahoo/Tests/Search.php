@@ -67,6 +67,18 @@ class Services_Yahoo_Tests_Search extends PHPUnit_Framework_TestCase {
         $this->fail("An expected Services_Yahoo_Exception has not been raised");
     }
 
+    public function testRequestFailing() {
+        try {
+            $client = Services_Yahoo_Search::factory("web");
+            $client->searchFor("");
+        } catch (Services_Yahoo_Exception $e) {
+            $this->assertEquals("Search query failed", $e->getMessage());
+            return;
+        }
+
+        $this->fail("An expected Services_Yahoo_Exception has not been raised");
+    }
+
     public function testWithResults10() {
         $client = Services_Yahoo_Search::factory("web");
 
