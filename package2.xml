@@ -23,7 +23,7 @@
     <email>mj@php.net</email>
     <active>yes</active>
   </lead>
-  <date>2006-10-02</date>
+  <date>2007-04-20</date>
   <version>
     <release>0.2.0</release>
     <api>0.2.0</api>
@@ -34,7 +34,12 @@
   </stability>
   <license uri="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</license>
   <notes>
-    * Switched from XML to Serialized PHP as the internal data encoding format.
+* Changed API for search interfaces to a fluent interface.  This means
+that with this release the API changes significantly and is not
+compatible to older version of this package.  The context analysis
+interface is not yet affected by this change.  Expect this to happen in
+a future release.
+* Switched from XML to Serialized PHP as the internal data encoding format.
   </notes>
   <contents>
     <dir name="/">
