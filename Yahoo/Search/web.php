@@ -54,7 +54,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * @access public
      * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
-    public function similarContentOK()
+    public function includeSimilar()
     {
         $this->parameters['similar_ok'] = 1;
 
@@ -112,7 +112,7 @@ class Services_Yahoo_Search_web extends Services_Yahoo_Search_AbstractSearch {
      * @param  string Creative Commons License code
      * @return Services_Yahoo_AbstractSearch Object which contains the method
      */
-    public function licensedUnder($license) {
+    public function withLicense($license) {
         $this->parameters['license'][] = $license;
 
         return $this;
