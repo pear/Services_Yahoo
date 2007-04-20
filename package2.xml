@@ -10,8 +10,12 @@
                              http://pear.php.net/dtd/package-2.0.xsd">
   <name>Services_Yahoo</name>
   <channel>pear.php.net</channel>
-  <summary>Provides access to the Yahoo! Web Services</summary>
-  <description>Services_Yahoo provides object-oriented interfaces to the web service capabilities of Yahoo.
+  <summary>
+    Provides access to the Yahoo! Web Services
+  </summary>
+  <description>
+    Services_Yahoo provides object-oriented interfaces to the web
+    service capabilities of Yahoo
   </description>
   <lead>
     <name>Martin Jansen</name>
