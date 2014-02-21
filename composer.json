@@ -1,0 +1,29 @@
+{
+    "authors": [
+        {
+            "email": "mj@php.net",
+            "name": "Martin Jansen",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "description": "More info available on: http://pear.php.net/package/Services_Yahoo",
+    "license": "Apache License, Version 2.0",
+    "name": "pear/services_yahoo",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Services_Yahoo",
+        "source": "https://github.com/pear/Services_Yahoo"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*",
+        "pear/http_request": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
